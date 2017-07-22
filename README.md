@@ -1,5 +1,7 @@
 # Simple Translator
 
+[![CircleCI](https://circleci.com/gh/AlchemyAlcove/SimpleTranslator/tree/master.svg?style=svg&circle-token=61bc55803d2f30fb8754490d33735514611ec9b6)](https://circleci.com/gh/AlchemyAlcove/SimpleTranslator/tree/master)
+
 A simplistic translator tool.
 
 It allows you to set many language files and a specific default language file. Each language has a code.
