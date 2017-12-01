@@ -1,3 +1,5 @@
+const isNil = require("lodash/isNil");
+
 const Translator = {
   defaultLanguageKey: null,
   defaultLanguageLibrary: null,
@@ -19,7 +21,7 @@ const Translator = {
 
     for(let i = 0; i < idPieces.length; i++) {
       let piece = idPieces[i];
-      if(this.isNil(translation[piece])) {
+      if(isNil(translation[piece])) {
         return(null);
       } else {
         translation = translation[piece];
@@ -27,10 +29,6 @@ const Translator = {
     }
 
     return(translation);
-  },
-
-  isNil(value) {
-    return(value === null || typeof(value) === "undefined");
   },
 
   registerDefaultLanguage(key, library) {
@@ -57,10 +55,10 @@ const Translator = {
     let translation = this.findTranslation(library, id);
 
     // defaults
-    if(this.isNil(translation) && this.language !== this.defaultLanguageKey) {
+    if(isNil(translation) && this.language !== this.defaultLanguageKey) {
       translation = this.findTranslation(this.getLibrary(this.defaultLanguageKey), id);
     }
-    if(this.isNil(translation)) {
+    if(isNil(translation)) {
       translation = id;
     }
 
