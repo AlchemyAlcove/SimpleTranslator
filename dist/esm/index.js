@@ -6,7 +6,7 @@ const Translator = {
   languages: {},
 
   changeLanguage(language) {
-    if (this.languages.hasOwnProperty(language)) {
+    if (!isNil(this.languages[language])) {
       this.language = language;
     } else {
       this.language = this.defaultLanguageKey;
@@ -14,10 +14,10 @@ const Translator = {
   },
 
   findTranslation(translation, id) {
-    let idPieces = id.split(".");
+    const idPieces = id.split(".");
 
     for (let i = 0; i < idPieces.length; i++) {
-      let piece = idPieces[i];
+      const piece = idPieces[i];
 
       if (isNil(translation[piece])) {
         return null;
@@ -41,13 +41,13 @@ const Translator = {
   },
 
   registerLanguage(key, library) {
-    let languages = this.languages;
+    const languages = this.languages;
     languages[key] = library;
     this.languages = languages;
   },
 
   translate(id, values = {}) {
-    let library = this.getLibrary();
+    const library = this.getLibrary();
 
     if (typeof library === "undefined") {
       return id;
@@ -63,7 +63,7 @@ const Translator = {
       translation = id;
     }
 
-    for (let key in values) {
+    for (const key in values) {
       translation = translation.split("${" + key + "}").join(values[key]);
     }
 
