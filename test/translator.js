@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import test from "ava";
 import Translator from "../index.js";
 
@@ -73,5 +74,5 @@ test("should fall back to key if no default translation found", t => {
 test("should insert variables", t => {
   Translator.registerDefaultLanguage("en", English);
 
-  t.deepEqual(Translator.translate("Nav.foo.one.two.test", {one: "foo", three: "bar"}), "Testing foo to bar");
+  t.deepEqual(Translator.translate("Nav.foo.one.two.test", { one: "foo", three: "bar" }), "Testing foo to bar");
 });
