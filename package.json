@@ -4,6 +4,7 @@
   "private": false,
   "description": "A simplistic translator.",
   "author": "AlchemyAlcove",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlchemyAlcove/SimpleTranslator"
